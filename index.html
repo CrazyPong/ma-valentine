@@ -35,7 +35,7 @@
 
     .card {
         background: white;
-        padding: 40px 35px;
+        padding: 40px 35px 90px;
         border-radius: 20px;
         text-align: center;
         box-shadow: 0 12px 30px rgba(0,0,0,0.12);
@@ -67,7 +67,6 @@
         left: 50%;
         transform: translateX(-110%);
         bottom: 30px;
-        margin-top: 30px;
     }
 
     #no {
@@ -76,12 +75,11 @@
         left: 50%;
         transform: translateX(20%) scale(1);
         bottom: 30px;
-        margin-top: 30px;
         transition:
             left 0.3s ease,
             bottom 0.3s ease,
-            transform 0.25s ease,
-            opacity 0.25s ease;
+            transform 0.8s ease,
+            opacity 0.8s ease;
     }
 
 
@@ -136,7 +134,7 @@
         );
     
         // seuils (ajustables)
-        const maxDistance = 120;
+        const maxDistance = 80;
         const minDistance = 40;
     
         if (distance < maxDistance) {
