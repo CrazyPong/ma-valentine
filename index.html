@@ -3,100 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <title>Valentine ❤️</title>
+
 <style>
     body {
-        font-family: Arial, sans-serif;
-        background: #ffe6eb;
+        margin: 0;
         height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #fdecef;
+        overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
+    /* petits cœurs discrets */
+    .heart {
+        position: absolute;
+        color: rgba(255, 77, 109, 0.15);
+        font-size: 18px;
+        animation: float 20s linear infinite;
+    }
+
+    @keyframes float {
+        from {
+            transform: translateY(100vh);
+        }
+        to {
+            transform: translateY(-10vh);
+        }
+    }
+
     .card {
         background: white;
-        padding: 40px;
-        border-radius: 16px;
+        padding: 40px 35px;
+        border-radius: 20px;
         text-align: center;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        width: 360px;
         position: relative;
-        width: 320px;
+        z-index: 2;
     }
 
     h1 {
+        font-size: 22px;
         margin-bottom: 30px;
+        font-weight: 500;
+        color: #333;
     }
 
     button {
-        padding: 12px 24px;
-        font-size: 16px;
+        padding: 12px 26px;
+        font-size: 15px;
+        border-radius: 10px;
         border: none;
-        border-radius: 8px;
         cursor: pointer;
         position: absolute;
+        transition: all 0.3s ease;
     }
 
     #yes {
         background: #ff4d6d;
         color: white;
         left: 50%;
-        transform: translateX(-120%);
-        bottom: 40px;
+        transform: translateX(-110%);
+        bottom: 30px;
     }
 
     #no {
-        background: #ccc;
+        background: #e5e5e5;
+        color: #555;
         left: 50%;
         transform: translateX(20%);
-        bottom: 40px;
+        bottom: 30px;
     }
 
     #message {
         display: none;
-        font-size: 18px;
+        font-size: 17px;
         color: #ff4d6d;
+        line-height: 1.5;
     }
 </style>
 </head>
+
 <body>
 
+<!-- cœurs générés en JS -->
+
 <div class="card">
-    <h1 id="question">Veux-tu être ma Valentine ?</h1>
-
-    <p id="message">
-        Bonne réponse ❤️<br><br>
-        Je te donne rendez-vous le vendredi 13 février à 16h30 dans notre maison.
-    </p>
-
-    <button id="yes">Oui</button>
-    <button id="no">Non</button>
-</div>
-
-<script>
-const noBtn = document.getElementById('no');
-const yesBtn = document.getElementById('yes');
-const question = document.getElementById('question');
-const message = document.getElementById('message');
-
-noBtn.addEventListener('mouseenter', () => {
-    const card = document.querySelector('.card');
-    const maxX = card.clientWidth - noBtn.offsetWidth;
-    const maxY = card.clientHeight - noBtn.offsetHeight;
-
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-
-    noBtn.style.left = x + 'px';
-    noBtn.style.bottom = y + 'px';
-});
-
-yesBtn.addEventListener('click', () => {
-    question.style.display = 'none';
-    yesBtn.style.display = 'none';
-    noBtn.style.display = 'none';
-    message.style.display = 'block';
-});
-</script>
-
-</body>
-</html>
+    <h1 id="question">
+        Est-ce que tu accepterais d’être
