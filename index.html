@@ -89,6 +89,18 @@
         color: #ff4d6d;
         line-height: 1.5;
     }
+
+    #photo {
+        display: none;
+        margin-top: 20px;
+        max-width: 100%;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
 </style>
 </head>
 
@@ -102,6 +114,12 @@
     </h1>
 
     <p id="message">
+        <img
+            id="photo"
+            src="T&S_035.jpg"
+            alt="Nous ❤️"
+        />
+
         Bonne réponse ❤️<br><br>
         J’aimerais te donner rendez-vous<br>
         le vendredi 13 février à 16h30,<br>
@@ -171,8 +189,20 @@
         document.getElementById('question').style.display = 'none';
         document.getElementById('yes').style.display = 'none';
         document.getElementById('no').style.display = 'none';
-        document.getElementById('message').style.display = 'block';
+    
+        const message = document.getElementById('message');
+        const photo = document.getElementById('photo');
+    
+        message.style.display = 'block';
+        photo.style.display = 'block';
+    
+        // déclenchement de l’animation
+        requestAnimationFrame(() => {
+            photo.style.opacity = '1';
+            photo.style.transform = 'scale(1)';
+        });
     });
+
 
     // génération des cœurs
     for (let i = 0; i < 20; i++) {
